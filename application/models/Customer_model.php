@@ -29,4 +29,21 @@ class Customer_model extends CI_Model {
         $query = $this->db->get_where('customer', array('cID' => $cID));
         return $query->row_array();
     }
+    
+    public function set_customer(){
+        $this->load->helper('url');
+
+        //$slug = url_title($this->input->post('title'), 'dash', TRUE);
+        //check database for last cID and increment by 1
+        $cID = $this->db->insert_id()+1;
+        
+        $data = array(
+         
+            'cName' => $this->input->post('cname'),
+            'cPhone' => $this->input->post('cphone'),
+            'email' => $this->input->post('email')
+        );
+
+        return $this->db->insert('customer', $data);
+    }
 }

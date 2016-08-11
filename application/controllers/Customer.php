@@ -39,5 +39,27 @@ class Customer extends CI_Controller{
         $this->load->view('customer/view', $data);
         $this->load->view('templates/footer', $data);
     }
-    //put your code here
+    
+    public function add(){
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $data['title'] = 'Add New Customer';
+
+        $this->form_validation->set_rules('cname', 'Name', 'required');
+        $this->form_validation->set_rules('cphone', 'Phone', 'required');
+
+        if ($this->form_validation->run() === FALSE)
+        {
+            $this->load->view('templates/header', $data);
+            $this->load->view('customer/add');
+            $this->load->view('templates/footer');
+
+        }
+        else
+        {
+            $this->Customer_model->set_customer();
+            $this->load->view('customer/success');
+        }
+    }
 }
