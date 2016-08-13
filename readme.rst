@@ -8,7 +8,7 @@ iPhone Warranty Services
 PHP Web App for Databases Class
 ***************
 View, and Update MySQL database using PHP.
-Preview can be seen `here >http://interstellarinternet.com/iphonewarranty/>`_.
+Preview can be seen `here <http://interstellarinternet.com/iphonewarranty/>`_.
 
 ###################
 CodeIgniter
